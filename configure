@@ -3439,24 +3439,16 @@ case "${TP_ARCH}" in
 	CPPFLAGS="$CPPFLAGS -I/Library/Frameworks/QtCore.framework/Headers"
 	LIBS="$LIBS -framework QtCore -lfftw3 -lgsl -lgslcblas -lm"
 	;;
+  *Debian*)
+  CPPFLAGS="$CPPFLAGS -I/usr/include/qt4 -I/usr/include/qt4/QtCore"
+  LIBS="$LIBS -lQtCore -lfftw3 -lgsl -lgslcblas"
+  ;;
 	*)
 	QTFLAGS=`pkg-config QtCore --cflags`
 	CPPFLAGS="$CPPFLAGS $QTFLAGS"
 	LIBS="$LIBS -lQtCore -lfftw3 -lgsl -lgslcblas"
 	;;
 esac
-
-#  	*Linux*)
-#	CPPFLAGS="$CPPFLAGS -I/usr/include/qt4 -I/usr/include/qt4/QtCore"
-#	LIBS="$LIBS -lQtCore -lfftw3 -lgsl -lgslcblas"
-#	;;
-#  *)
-#	AC_MSG_ERROR([Unsupported operating system: ${TP_ARCH}])
-#	;;
-
-
-
-
 
 ac_config_headers="$ac_config_headers src/config.h"
 
