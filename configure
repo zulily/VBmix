@@ -3433,16 +3433,16 @@ fi
 
 fi
 
-: ${TP_ARCH=`uname -s`}
+: ${TP_ARCH=`uname -a`}
 case "${TP_ARCH}" in
 	*Darwin*)
 	CPPFLAGS="$CPPFLAGS -I/Library/Frameworks/QtCore.framework/Headers"
 	LIBS="$LIBS -framework QtCore -lfftw3 -lgsl -lgslcblas -lm"
 	;;
-  *Debian*)
-  CPPFLAGS="$CPPFLAGS -I/usr/include/qt4 -I/usr/include/qt4/QtCore"
-  LIBS="$LIBS -lQtCore -lfftw3 -lgsl -lgslcblas"
-  ;;
+	*Debian*)
+	CPPFLAGS="$CPPFLAGS -I/usr/include/qt4 -I/usr/include/qt4/QtCore"
+	LIBS="$LIBS -lQtCore -lfftw3 -lgsl -lgslcblas"
+	;;
 	*)
 	QTFLAGS=`pkg-config QtCore --cflags`
 	CPPFLAGS="$CPPFLAGS $QTFLAGS"
